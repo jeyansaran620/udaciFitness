@@ -3,7 +3,6 @@
   "displayName": "Myfitness",
   "expo": {
     "name": "Myfitness",
-    "slug": "expo-template-bare",
     "version": "1.0.0",
     "platforms": [
       "ios",
@@ -12,6 +11,21 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "orientation": "portrait",
+   "description": "The best triathlon training app in the world.",
+    "slug": "MyFitness",
+     "icon": "https://maxcdn.icons8.com/Color/PNG/512/Sports/triathlon-512.png",
+    "notification": {
+       "icon": "http://www.student-scholarships.com/images/made/img/featured/nav_basketball_45_45.png"
+     },
+     "ios": {
+         "bundleIdentifier": "org.udacifitness.exp"
+      },
+      "android": {
+        "package": "org.udacifitness.exp"
+      }
   }
 }
+
+

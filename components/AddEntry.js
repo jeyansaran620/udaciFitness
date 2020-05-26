@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text ,Platform,StyleSheet} from 'react-native'
-import { getMetricMetaInfo, timeToString ,getDailyRemainderValue} from '../utils/helpers'
+import { getMetricMetaInfo, timeToString ,getDailyRemainderValue,
+  clearLocalNotification,
+  setLocalNotification} from '../utils/helpers'
 import MySlider from './MySlider'
 import MyStepper from './MyStepper'
 import DateHeader from './DateHeader'
@@ -76,8 +78,9 @@ function SubmitBtn ({ onPress }) {
     this.toHome()
 
     submitEntry({ key, entry })
-
-    // Clear local notification
+   
+    clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   
@@ -163,7 +166,7 @@ const styles =StyleSheet.create({
     margin:25,
   },
   iosSubmitBtn:{
-  backgroundColor:lightPurp,
+  backgroundColor:'black',
   padding:18,
   borderRadius:8,
   height:45,
@@ -171,7 +174,7 @@ const styles =StyleSheet.create({
   marginRight:40
   },
   androidSubmitBtn:{
-    backgroundColor:lightPurp,
+    backgroundColor:'black',
     padding:18,
     borderRadius:5,
     height:45,

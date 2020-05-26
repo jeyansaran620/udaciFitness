@@ -7,12 +7,14 @@ import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
 import Constants from "expo-constants";
-
+import Live from "./components/Live";
 import reducer from "./reducers";
 import AddEntry from "./components/AddEntry";
 import History from "./components/History";
 import EntryDetail from "./components/EntryDetail";
-import { purple, white } from "./utils/colors";
+import { purple, white, gray } from "./utils/colors";
+import  {setLocalNotification} from './utils/helpers';
+
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -39,15 +41,22 @@ const Tabs = createBottomTabNavigator({
       tabBarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />
     },
   },
+   Live: {
+    screen: Live,
+    navigationOptions: {
+      tabBarLabel: 'Live',
+      tabBarIcon: ({ tintColor }) => <FontAwesome name='gamepad' size={30} color={tintColor} />
+    },
+  },
 }, {
   navigationOptions: {
     header: null
   },
   tabBarOptions: {
-    activeTintColor: Platform.OS === 'ios' ? purple : white,
+    activeTintColor: Platform.OS === 'ios' ? purple:white,
     style: {
       height: 56,
-      backgroundColor: Platform.OS === 'ios' ? white : purple,
+      backgroundColor: Platform.OS === 'ios' ? white : 'black',
       shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
         width: 0,
@@ -68,7 +77,7 @@ const MainNavigator = createStackNavigator({
     navigationOptions: {
       headerTintColor: white,
       headerStyle: {
-        backgroundColor: purple,
+        backgroundColor: 'black',
       }
     }
   }
@@ -77,12 +86,17 @@ const MainNavigator = createStackNavigator({
 const Navigation = createAppContainer(MainNavigator);
 
 class App extends React.Component {
- 
+
+ componentDidMount()
+ {
+   setLocalNotification()
+ }
+
   render() {
     return (
       <Provider store={store}>
         <View style={{ flex: 1 }}>
-          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
+          <UdaciStatusBar backgroundColor={'black'} barStyle="light-content" />
           <Navigation />
         </View>
       </Provider>

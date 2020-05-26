@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {addEntry, receiveEntries} from '../actions';
 import {timeToString,getDailyRemainderValue} from '../utils/helpers';
 import { fetchCalendarResults } from '../utils/api';
-import UdaciFitnessCalendar from 'udacifitness-calendar';
+import UdaciFitnessCalendar from 'udacifitness-calendar-fix';
 import DateHeader from './DateHeader';
 import { white } from '../utils/colors';
 import MetricCard from './MetricCard';
@@ -45,9 +45,7 @@ class History extends React.Component
                 'EntryDetail',
                 {entryId : key}
             )}>
-             <Text>
              <MetricCard date={formattedDate} metrics={metrics} />
-             </Text>
             </TouchableOpacity>
             }
         </View>

@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
-import { timeToString, getDailyReminderValue } from '../utils/helpers'
-import MetricCard from './MetricCard'
-import { white } from '../utils/helpers'
-import TextButton from './TextButton'
-import { addEntry } from '../actions'
-import { removeEntry } from '../utils/api'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { timeToString, getDailyRemainderValue,white } from '../utils/helpers';
+import MetricCard from './MetricCard';
+import TextButton from './TextButton';
+import { addEntry } from '../actions';
+import { removeEntry } from '../utils/api';
 
 class EntryDetail extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -22,7 +21,6 @@ class EntryDetail extends Component {
   }
   reset = () => {
     const { remove, goBack, entryId } = this.props
-
     remove()
     goBack()
     removeEntry(entryId)
@@ -67,7 +65,7 @@ function mapDispatchToProps (dispatch, { navigation }) {
   return {
     remove: () => dispatch(addEntry({
       [entryId]: timeToString() === entryId
-        ? getDailyReminderValue()
+        ? getDailyRemainderValue()
         : null
     })),
     goBack: () => navigation.goBack(),
