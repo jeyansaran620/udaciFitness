@@ -17,7 +17,7 @@
     "slug": "MyFitness",
      "icon": "https://maxcdn.icons8.com/Color/PNG/512/Sports/triathlon-512.png",
     "notification": {
-       "icon": "http://www.student-scholarships.com/images/made/img/featured/nav_basketball_45_45.png"
+       "icon": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn0.iconfinder.com%2Fdata%2Ficons%2Fsports-android-l-lollipop-icon-pack%2F24%2Ffootball-256.png&f=1&nofb=1"
      },
      "ios": {
          "bundleIdentifier": "org.udacifitness.exp"
